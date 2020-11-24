@@ -31,7 +31,7 @@
             </a>
         </div>
         <!-- Navbar -->
-        <nav class="navbar-custom" style="background-color: #0cce80">
+        <nav class="navbar-custom" style="background-color: #fff">
             <!-- Search input -->
             <div class="search-wrap" id="search-wrap">
                 <div class="search-bar">
