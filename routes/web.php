@@ -107,18 +107,21 @@ Route::group(['middleware' => 'auth'], function () {
 	});
 });
 
-
-Route::group(['prefix' => 'superadmin'], function () {
-	Route::get('login', 'SuperAdmin\SuperAdminAuthController@index');
-	Route::get('logout', 'SuperAdmin\SuperAdminAuthController@logout')->name('superadmin_logout');
-	Route::post('login', 'SuperAdmin\SuperAdminAuthController@login')->name('superadmin_login');
+Route::group(['middleware' => 'notLoginSuperAdmin'], function () {
+	Route::group(['prefix' => 'superadmin'], function () {
+		Route::get('login', 'SuperAdmin\SuperAdminAuthController@index');
+		Route::get('logout', 'SuperAdmin\SuperAdminAuthController@logout')->name('superadmin_logout');
+		Route::post('login', 'SuperAdmin\SuperAdminAuthController@login')->name('superadmin_login');
+	});
 });
 
-Route::group(['prefix' => 'test'], function () {
-	Route::get('dashboard', function () {
-		return view('under_construction/dashboard/dashboard');
-	});
-	Route::get('pengguna', function () {
-		return 'pengguna';
+Route::group(['middleware' => 'loginSuperAdmin'], function () {
+	Route::group(['prefix' => 'test'], function () {
+		Route::get('dashboard', function () {
+			return view('under_construction/dashboard/dashboard');
+		});
+		Route::get('pengguna', function () {
+			return 'pengguna';
+		});
 	});
 });

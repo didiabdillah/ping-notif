@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Illuminate\Support\Facades\Session;
 use Closure;
 
-class loginSuperAdmin
+class notLoginSuperAdmin
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,8 @@ class loginSuperAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (!Session::get('id')) {
-            return redirect('/superadmin/login');
+        if (Session::get('id')) {
+            return redirect('/test/dashboard');
         }
 
         return $next($request);
