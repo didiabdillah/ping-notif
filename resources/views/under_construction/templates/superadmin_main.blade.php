@@ -109,7 +109,7 @@
         <div class="left-sidenav">
             <ul class="metismenu left-sidenav-menu" id="side-nav">
                 <li class="menu-title">Admin</li>
-                <li>
+                <li class="active">
                     <a href="javascript: void(0);"><i class="mdi mdi-speedometer"></i><span>Dashboards</span></a>
                 </li>
                 <li>
