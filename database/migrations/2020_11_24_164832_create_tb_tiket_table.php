@@ -15,8 +15,11 @@ class CreateTbTiketTable extends Migration
     {
         Schema::create('tb_tiket', function (Blueprint $table) {
             $table->bigIncrements('id_tiket');
+            $table->unsignedBigInteger('id_user');
             $table->string('judul', 255);
             $table->timestamps();
+
+            $table->foreign('id_user')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -16,12 +16,14 @@ class CreateTbItemTiketTable extends Migration
         Schema::create('tb_item_tiket', function (Blueprint $table) {
             $table->bigIncrements('id_item');
             $table->unsignedBigInteger('id_tiket');
+            $table->unsignedBigInteger('id_user');
             $table->text('pesan');
             $table->string('gambar', 255);
             $table->enum('status', ['belum dilihat', 'dilihat', 'selesai']);
             $table->timestamps();
 
             $table->foreign('id_tiket')->references('id_tiket')->on('tb_tiket')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_user')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
