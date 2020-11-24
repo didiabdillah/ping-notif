@@ -91,7 +91,7 @@
                         <a class="dropdown-item" href="#"><i class="dripicons-user text-muted mr-2"></i> Profile</a>
                         <a class="dropdown-item" href="#"><i class="dripicons-gear text-muted mr-2"></i> Settings</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><i class="dripicons-exit text-muted mr-2"></i> Logout</a>
+                        <a class="dropdown-item" href="{{route('superadmin_logout')}}"><i class="dripicons-exit text-muted mr-2"></i> Logout</a>
                     </div>
                 </li>
             </ul>
@@ -113,7 +113,7 @@
                     <a href="javascript: void(0);"><i class="mdi mdi-speedometer"></i><span>Dashboards</span></a>
                 </li>
                 <li>
-                    <a href="calendar.html"><i class="mdi mdi-account-multiple"></i><span>Pengguna</span><span class="badge badge-primary badge-pill float-right">999+</span></a>
+                    <a href="{{url('/test/pengguna')}}"><i class="mdi mdi-account-multiple"></i><span>Pengguna</span><span class="badge badge-primary badge-pill float-right">999+</span></a>
                 </li>
                 <li>
                     <a href="calendar.html"><i class="mdi mdi-wechat"></i><span>Tiket</span><span class="badge badge-danger badge-pill float-right">999+</span></a>

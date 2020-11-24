@@ -58,27 +58,14 @@ Route::group(['middleware' => 'auth'], function () {
 			Route::post('/simpan-domain', 'WAController@simpandomain')->name('simpandomain');
 			Route::post('/delete-Domain', 'WAController@deleteDomain')->name('deleteDomain');
 
-
 			Route::get('/pesan-otomatis', 'OtomatisController@pesanotomatis');
 			Route::post('/simpan-pesan-otomatis', 'OtomatisController@simpan_pesan_otomatis')->name('simpan_pesan_otomatis');
-
-
-
-
-
-
-
-
-
 
 			Route::post('/save-no-wa', 'WAController@save_no_wa')->name('save_no_wa');
 			Route::post('/save-session-whatsapp', 'WAController@savesessionwa');
 			Route::post('/get-session', 'WAController@getsession');
 			Route::post('/hapus-sesi', 'WAController@hapussesi');
 			Route::post('/kirim-wa-manual', 'WAController@kirim_wa_manual')->name('kirim_wa_manual');
-
-
-
 
 			Route::get('/billing', 'WAbillingController@billing')->name('billing');
 			Route::post('/tambahkan-paket', 'WAbillingController@simpan_paket')->name('simpan_paket');
@@ -99,10 +86,8 @@ Route::group(['middleware' => 'auth'], function () {
 			// Route::post('/sms/edit/simpan', 'SMSController@simpanedit')->name('simpaneditsms');
 			// Route::post('/sms/hapus', 'SMSController@hapus')->name('hapussms');
 
-
 			//dokumentasi-api
 			Route::get('/dokumentasi-api', 'WAController@dokumentasiapi');
-
 
 			//tambahan saldo
 			Route::get('/tambah-saldo-manual/{id_his}', 'WAbillingController@tambahsaldomanual');
@@ -122,8 +107,18 @@ Route::group(['middleware' => 'auth'], function () {
 	});
 });
 
+
+Route::group(['prefix' => 'superadmin'], function () {
+	Route::get('login', 'SuperAdmin\SuperAdminAuthController@index');
+	Route::get('logout', 'SuperAdmin\SuperAdminAuthController@logout')->name('superadmin_logout');
+	Route::post('login', 'SuperAdmin\SuperAdminAuthController@login')->name('superadmin_login');
+});
+
 Route::group(['prefix' => 'test'], function () {
 	Route::get('dashboard', function () {
 		return view('under_construction/dashboard/dashboard');
+	});
+	Route::get('pengguna', function () {
+		return 'pengguna';
 	});
 });
