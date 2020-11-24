@@ -9,6 +9,15 @@
   .bd-nice {
     right: 0px;
   }
+
+  .login-alert {
+    color: black;
+    margin-bottom: 15px;
+    background-color: #F6BDC0;
+    padding: 8px;
+    margin-top: -10px;
+  }
+  }
 </style>
 
 <div class="wd-sc">
@@ -21,7 +30,12 @@
 
     <div class="form Masuk">
 
-      <h2>Silahkan Masuk</h2>
+      <h2 class="text-center">Silahkan Masuk</h2>
+
+      @if (Session::has('failed'))
+      <div class="alert alert-primary login-alert" role="alert">{{ Session::get('failed') }}</div>
+      @endif
+
       <form method="POST" action="{{ route('superadmin_login') }}">
         @csrf
         <input id="email" type="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus name="email" />

@@ -54,12 +54,15 @@ class SuperAdminAuthController extends Controller
                         return redirect('/superadmin/login');
                     }
                 } else {
+                    Session::flash('failed', 'Password Salah');
                     return redirect('/superadmin/login');
                 }
             } else {
+                Session::flash('failed', 'Email Salah');
                 return redirect('/superadmin/login');
             }
         } else {
+            Session::flash('failed', 'Akun Tidak Ditemukan');
             return redirect('/superadmin/login');
         }
     }
@@ -67,7 +70,7 @@ class SuperAdminAuthController extends Controller
     public function logout()
     {
         Session::flush();
-
+        Session::flash('failed', 'Logout Sukses');
         return redirect('/superadmin/login');
     }
 }
