@@ -110,7 +110,7 @@
             <ul class="metismenu left-sidenav-menu" id="side-nav">
                 <li class="menu-title">Admin</li>
                 <li class="active">
-                    <a href="javascript: void(0);"><i class="mdi mdi-speedometer"></i><span>Dashboards</span></a>
+                    <a href="javascript: void(0);"><i class="mdi mdi-speedometer"></i><span>Dashboard</span></a>
                 </li>
                 <li>
                     <a href="{{url('/test/pengguna')}}"><i class="mdi mdi-account-multiple"></i><span>Pengguna</span><span class="badge badge-primary badge-pill float-right">999+</span></a>

@@ -44,7 +44,7 @@
                                                 </div>
                                                 <div class="col-10 text-right">
                                                     <p class="text-muted font-13 mb-0">Jumlah Pengguna</p>
-                                                    <h4 class="mb-0 font-20">999.999</h4>
+                                                    <h4 class="mb-0 font-20">999.999.999</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -57,7 +57,7 @@
                                                 </div>
                                                 <div class="col-10 text-right">
                                                     <p class="text-muted font-13 mb-0">Jumlah Whatsapp</p>
-                                                    <h4 class="mb-0 font-20">999.999</h4>
+                                                    <h4 class="mb-0 font-20">999.999.999</h4>
                                                 </div>
                                             </div>
                                         </div>

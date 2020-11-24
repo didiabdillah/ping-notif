@@ -2,12 +2,19 @@
 
 @section('content')
 <style type="text/css">
+  .bd-nice::before {
+    background-image: url(/assets/images/technology.png);
+  }
 
+  .bd-nice {
+    right: 0px;
+  }
 </style>
+
 <div class="wd-sc">
   <div class="bd-nice"></div>
   <div class="pen-title">
-    <h1>Pingnotif</h1><span>Nikmati Segala Kemudahannya !</span>
+    <h2>Super Admin</h1><span>Ping Notif</span>
   </div>
   <!-- Form Module-->
   <div class="module form-module">
