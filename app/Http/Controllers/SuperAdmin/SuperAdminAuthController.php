@@ -49,7 +49,7 @@ class SuperAdminAuthController extends Controller
                     $request->session()->put($data);
 
                     if ($user->status_dev == "superadmin") {
-                        return redirect('/test/dashboard');
+                        return redirect()->route('superadmin_dashboard');
                     } else {
                         return redirect('/superadmin/login');
                     }

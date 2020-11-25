@@ -44,11 +44,11 @@
                 </li>
                 <li class="dropdown">
                     <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <i class="mdi mdi-bell-outline nav-icon"></i> <span class="badge badge-danger badge-pill noti-icon-badge">2</span>
+                        <i class="mdi mdi-bell-outline nav-icon"></i> <span class="badge badge-danger badge-pill noti-icon-badge">999+</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-lg">
                         <!-- item-->
-                        <h6 class="dropdown-item-text">Notifications (258)</h6>
+                        <h6 class="dropdown-item-text">Notifications (999+)</h6>
                         <div class="slimscroll notification-list">
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item active">
@@ -88,8 +88,7 @@
                         <img src="{{URL::asset('assets/images/users/user-1.jpg')}}" alt="profile-user" class="rounded-circle" /> <span class="ml-1 nav-user-name hidden-sm">{{Session::get('name')}} <i class="mdi mdi-chevron-down"></i></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#"><i class="dripicons-user text-muted mr-2"></i> Profile</a>
-                        <a class="dropdown-item" href="#"><i class="dripicons-gear text-muted mr-2"></i> Settings</a>
+                        <a class="dropdown-item" href="{{route('superadmin_setting')}}"><i class="dripicons-gear text-muted mr-2"></i> Settings</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{route('superadmin_logout')}}"><i class="dripicons-exit text-muted mr-2"></i> Logout</a>
                     </div>
@@ -146,11 +145,26 @@
         <script src="{{URL::asset('assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
         <script src="{{URL::asset('assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
         <script src="{{URL::asset('assets/plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
-        <script src="{{URL::asset('assets/pages/jquery.dashboard.init.js')}}"></script>
-        <script src="{{URL::asset('assets/pages/jquery.dashboard2.init.js')}}"></script>
+        <!-- <script src="{{URL::asset('assets/pages/jquery.dashboard2.init.js')}}"></script> -->
         <!-- App js -->
         <script src="{{URL::asset('assets/js/app.js')}}"></script>
 
+        <script>
+            var line = new Morris.Line({
+                    element: "morris-line-chart",
+                    resize: !0,
+                    data: @php print($data) @endphp,
+                    xkey: "tanggal",
+                    ykeys: ["jumlah_harian"],
+                    labels: ["Pendaftar"],
+                    gridLineColor: "#eef0f2",
+                    lineColors: ["#44a2d2"],
+                    lineWidth: 2,
+                    hideHover: "auto"
+                }
+
+            )
+        </script>
 </body>
 
 </html>
