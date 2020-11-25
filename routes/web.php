@@ -114,7 +114,7 @@ Route::group(['prefix' => 'superadmin'], function () {
 
 	Route::group(['middleware' => 'loginSuperAdmin'], function () {
 		Route::get('dashboard', 'SuperAdmin\SuperAdminDashboardController@index')->name('superadmin_dashboard');
-		Route::post('grafik', 'SuperAdmin\SuperAdminDashboardController@grafik_data')->name('superadmin_grafik');
+		Route::get('grafik', 'SuperAdmin\SuperAdminDashboardController@grafik_data')->name('superadmin_grafik');
 	});
 
 	Route::group(['middleware' => 'notLoginSuperAdmin'], function () {

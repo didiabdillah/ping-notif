@@ -150,20 +150,27 @@
         <script src="{{URL::asset('assets/js/app.js')}}"></script>
 
         <script>
-            var line = new Morris.Line({
-                    element: "morris-line-chart",
-                    resize: !0,
-                    data: @php print($data) @endphp,
-                    xkey: "tanggal",
-                    ykeys: ["jumlah_harian"],
-                    labels: ["Pendaftar"],
-                    gridLineColor: "#eef0f2",
-                    lineColors: ["#44a2d2"],
-                    lineWidth: 2,
-                    hideHover: "auto"
-                }
+            $.ajax({
+                dataType: "json",
+                url: "{{route('superadmin_grafik')}}",
+                success: function(data) {
+                    const graf = data;
+                    var line = new Morris.Line({
+                            element: "morris-line-chart",
+                            resize: !0,
+                            data: graf,
+                            xkey: "tanggal",
+                            ykeys: ["jumlah_harian"],
+                            labels: ["Pendaftar"],
+                            gridLineColor: "#eef0f2",
+                            lineColors: ["#44a2d2"],
+                            lineWidth: 2,
+                            hideHover: "auto"
+                        }
 
-            )
+                    )
+                }
+            });
         </script>
 </body>
 
