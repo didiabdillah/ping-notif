@@ -72,7 +72,7 @@
                             <div class="col-8 align-self-center text-center">
                                 <div class="ml-2 text-right">
                                     <p class="mb-1 text-muted font-size-13">Pemasukan</p>
-                                    <h4 class="mt-0 mb-1 font-20">Rp. 999.999.999</h4>
+                                    <h4 class="mt-0 mb-1 font-20">Rp.{{$data["pemasukan"]}}</h4>
                                 </div>
                             </div>
                         </div>

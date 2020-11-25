@@ -20,9 +20,15 @@ class SuperAdminDashboardController extends Controller
         $jumlahwa = DB::table('wa_account')
             ->count();
 
+        $jumlahpemasukan = DB::table('history_billing')
+            ->select(DB::raw('SUM(nominal) as pemasukan'))
+            ->where('status', 'lunas')
+            ->get();
+
         $data = [
             "user" => $jumlahuser,
-            "wa" => $jumlahwa
+            "wa" => $jumlahwa,
+            "pemasukan" => $jumlahpemasukan[0]->pemasukan
         ];
 
         return view('superadmin/dashboard/dashboard', compact('data'));
