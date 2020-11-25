@@ -146,6 +146,7 @@
         <script src="{{URL::asset('assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
         <script src="{{URL::asset('assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
         <script src="{{URL::asset('assets/plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
+        <script src="{{URL::asset('assets/pages/jquery.dashboard.init.js')}}"></script>
         <script src="{{URL::asset('assets/pages/jquery.dashboard2.init.js')}}"></script>
         <!-- App js -->
         <script src="{{URL::asset('assets/js/app.js')}}"></script>
