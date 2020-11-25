@@ -12,17 +12,20 @@ class SuperAdminDashboardController extends Controller
 {
     public function index()
     {
-        $data = DB::table('users')
-            ->select(DB::raw('DATE(created_at) AS tanggal, COUNT(*) AS jumlah_harian'))
+        $jumlahuser = DB::table('users')
             ->where('status_dev', '!=', 'superadmin')
             ->orWhere('status_dev', NULL)
-            ->groupBy('tanggal')
-            ->orderBy('tanggal', 'ASC')
-            ->orderBy('id', 'DESC')
-            ->limit(7)
-            ->get();
+            ->count();
 
-        return view('superadmin/dashboard/dashboard', ['data' => json_encode($data)]);
+        $jumlahwa = DB::table('wa_account')
+            ->count();
+
+        $data = [
+            "user" => $jumlahuser,
+            "wa" => $jumlahwa
+        ];
+
+        return view('superadmin/dashboard/dashboard', compact('data'));
     }
 
     public function grafik_data()
