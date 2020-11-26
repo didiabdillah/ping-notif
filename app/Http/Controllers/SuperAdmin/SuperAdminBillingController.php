@@ -12,13 +12,35 @@ class SuperAdminBillingController extends Controller
 {
     public function index()
     {
-        $billing = DB::table('tb_billing')
+        $total = DB::table('history_billing')
+            ->select(DB::raw('SUM(nominal) as total'))
+            ->where('status', 'lunas')
+            ->get();
+
+        $bulanan = DB::table('history_billing')
+            ->select(DB::raw('SUM(nominal) as total'))
+            ->where(DB::raw('MONTH(created_at)'), DB::raw('MONTH(CURDATE())'))
+            ->where('status', 'lunas')
+            ->get();
+
+        $mingguan = DB::table('history_billing')
+            ->select(DB::raw('SUM(nominal) as total'))
+            ->where(DB::raw('WEEK(created_at)'), DB::raw('WEEK(CURDATE())'))
+            ->where('status', 'lunas')
+            ->get();
+
+        $harian = DB::table('history_billing')
+            ->select(DB::raw('SUM(nominal) as total'))
+            ->where(DB::raw('DATE(created_at)'), DB::raw('DATE(CURDATE())'))
+            ->where('status', 'lunas')
+            ->get();
+
+        $table = DB::table('tb_billing')
             ->select('wa_account.number', 'users.name', 'tb_billing.id_billing', 'tb_billing.masa_aktif', DB::raw('DATE(tb_billing.created_at) AS awal'))
             ->join('users', 'tb_billing.id_user', '=', 'users.id')
             ->join('wa_account', 'tb_billing.id_wa', '=', 'wa_account.id')
             ->orderBy('tb_billing.id_billing', 'desc')
             ->get();
-
 
         // $pengguna = DB::table('users')
         //     ->select('users.name', DB::raw('DATE(users.created_at) as daftar'), DB::raw('COUNT(wa_account.user_id) as jumlah_wa'))
@@ -27,6 +49,15 @@ class SuperAdminBillingController extends Controller
         //     ->groupBy('daftar')
         //     ->orderBy('user.name', 'asc')
         //     ->get();
+
+        $billing = [
+            "billing" => $table,
+            "total" => $total[0]->total,
+            "bulanan" => $bulanan[0]->total,
+            "mingguan" => $mingguan[0]->total,
+            "harian" => $harian[0]->total
+        ];
+
 
         return view('superadmin/billing/billing', compact('billing'));
     }
