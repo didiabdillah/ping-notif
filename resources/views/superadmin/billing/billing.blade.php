@@ -1,4 +1,4 @@
-@extends('under_construction.templates.superadmin_main')
+@extends('superadmin.templates.superadmin_main')
 
 @section('title', "Billing")
 
