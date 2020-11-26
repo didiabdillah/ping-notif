@@ -109,7 +109,7 @@
                             <div class="col-lg col-xl border-right">
                                 <div class="card shadow-none mb-0">
                                     <div class="card-body">
-                                        <div id="morris-line-chart" class="morris-chart overview-chart"></div>
+                                        <div id="morris-line-chart-billing" class="morris-chart overview-chart"></div>
                                     </div>
                                 </div>
                             </div>

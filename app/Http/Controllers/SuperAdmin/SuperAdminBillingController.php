@@ -30,4 +30,28 @@ class SuperAdminBillingController extends Controller
 
         return view('superadmin/billing/billing', compact('billing'));
     }
+
+    public function grafik_data()
+    {
+        $data_graf = [];
+
+        for ($i = 0; $i < 12; $i++) {
+            $data = DB::table('history_billing')
+                ->select(DB::raw('MONTH(created_at) AS bulan, SUM(nominal) AS jumlah_bulanan'))
+                ->where(DB::raw('MONTH(created_at)'), DB::raw('MONTH(CURDATE() - INTERVAL ' . $i . ' MONTH)'))
+                ->where('status', 'lunas')
+                ->groupBy(DB::raw('MONTH(created_at)'))
+                ->get();
+
+            if ($data->count() > 0) {
+                $data_graf[$i]["bulan"] = date('Y-') . $data[0]->bulan;
+                $data_graf[$i]["jumlah_bulanan"] = $data[0]->jumlah_bulanan;
+            } else {
+                $data_graf[$i]["bulan"] = date('Y-m', strtotime('-' . $i . 'month'));
+                $data_graf[$i]["jumlah_bulanan"] = 0;
+            }
+        }
+
+        return json_encode($data_graf, true);
+    }
 }

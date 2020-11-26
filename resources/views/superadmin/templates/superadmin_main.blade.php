@@ -173,6 +173,28 @@
                     )
                 }
             });
+
+            $.ajax({
+                dataType: "json",
+                url: "{{route('superadmin_billing_grafik')}}",
+                success: function(data) {
+                    const graf = data;
+                    var line = new Morris.Line({
+                            element: "morris-line-chart-billing",
+                            resize: !0,
+                            data: graf,
+                            xkey: "bulan",
+                            ykeys: ["jumlah_bulanan"],
+                            labels: ["Pemasukan"],
+                            gridLineColor: "#eef0f2",
+                            lineColors: ["#44a2d2"],
+                            lineWidth: 2,
+                            hideHover: "auto"
+                        }
+
+                    )
+                }
+            });
         </script>
 </body>
 
