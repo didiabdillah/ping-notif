@@ -13,9 +13,10 @@ class SuperAdminBillingController extends Controller
     public function index()
     {
         $billing = DB::table('tb_billing')
+            ->select('wa_account.number', 'users.name', 'tb_billing.id_billing', 'tb_billing.masa_aktif', DB::raw('DATE(tb_billing.created_at) AS awal'))
             ->join('users', 'tb_billing.id_user', '=', 'users.id')
             ->join('wa_account', 'tb_billing.id_wa', '=', 'wa_account.id')
-            ->select('wa_account.number', 'users.name', 'tb_billing.id_billing', 'tb_billing.masa_aktif', DB::raw('DATE(tb_billing.created_at) AS awal'))
+            ->orderBy('tb_billing.id_billing', 'desc')
             ->get();
 
 

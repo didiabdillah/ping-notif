@@ -119,6 +119,8 @@ Route::group(['prefix' => 'superadmin'], function () {
 		Route::get('billing', 'SuperAdmin\SuperAdminBillingController@index')->name('superadmin_billing');
 
 		Route::get('setting', 'SuperAdmin\SuperAdminSettingController@index')->name('superadmin_setting');
+		Route::put('setting', 'SuperAdmin\SuperAdminSettingController@edit')->name('superadmin_setting_edit');
+		Route::patch('setting', 'SuperAdmin\SuperAdminSettingController@ubahpassword')->name('superadmin_setting_ubah_password');
 	});
 
 	Route::group(['middleware' => 'notLoginSuperAdmin'], function () {

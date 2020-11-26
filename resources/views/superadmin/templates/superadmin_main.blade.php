@@ -146,6 +146,8 @@
         <script src="{{URL::asset('assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
         <script src="{{URL::asset('assets/plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
         <!-- <script src="{{URL::asset('assets/pages/jquery.dashboard2.init.js')}}"></script> -->
+        <!-- Datatable init js -->
+        <script src="{{URL::asset('assets/js/datatables.init.js')}}"></script>
         <!-- App js -->
         <script src="{{URL::asset('assets/js/app.js')}}"></script>
 

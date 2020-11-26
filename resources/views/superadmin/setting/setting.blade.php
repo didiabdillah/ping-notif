@@ -26,17 +26,29 @@
                 <div class="card ">
                     <div class="card-body">
                         <h5 class="card-title">General</h5>
-                        <form>
+                        <form method="POST" action="{{route('superadmin_setting_edit')}}">
+                            @csrf
+                            @method('put')
                             <div class="form-group ">
                                 <label for="name" class="col-form-label">Nama</label>
                                 <div class="">
-                                    <input class="form-control" type="text" id="name" name="name" placeholder="Nama" value="">
+                                    <input class="form-control  @error('name') is-invalid @enderror" type="text" id="name" name="name" placeholder="Nama" value="{{$setting->name}}">
+                                    @error('name')
+                                    <div class="invalid-feedback">
+                                        {{$message}}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group ">
                                 <label for="email" class="col-form-label pt-0">Email</label>
                                 <div class="">
-                                    <input class="form-control" type="email" value="" name="email" id="email" placeholder="Email">
+                                    <input class="form-control  @error('email') is-invalid @enderror" type="email" value="{{$setting->email}}" name="email" id="email" placeholder="Email">
+                                    @error('email')
+                                    <div class="invalid-feedback">
+                                        {{$message}}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <button type="reset" class="btn btn-secondary w-lg">Batal</button>
@@ -51,23 +63,40 @@
                 <div class="card ">
                     <div class="card-body">
                         <h5 class="card-title">Ubah Password</h5>
-                        <form>
+                        <form method="POST" action="{{route('superadmin_setting_ubah_password')}}">
+                            @csrf
+                            @method('patch')
                             <div class="form-group ">
                                 <label for="passwordLama" class="col-form-label">Password Lama</label>
                                 <div class="">
-                                    <input class="form-control" type="password" id="passwordLama" name="passwordLama" placeholder="Password Lama" value="">
+                                    <input class="form-control @error('passwordLama') is-invalid @enderror" type="password" id="passwordLama" name="passwordLama" placeholder="Password Lama" value="">
+                                    @error('passwordLama')
+                                    <div class="invalid-feedback">
+                                        {{$message}}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group ">
                                 <label for="passwordBaru" class="col-form-label">Password Baru</label>
                                 <div class="">
-                                    <input class="form-control" type="password" id="passwordBaru" name="passwordBaru" placeholder="Password Baru" value="">
+                                    <input class="form-control @error('passwordBaru') is-invalid @enderror" type="password" id="passwordBaru" name="passwordBaru" placeholder="Password Baru" value="">
+                                    @error('passwordBaru')
+                                    <div class="invalid-feedback">
+                                        {{$message}}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group ">
                                 <label for="konfirmasiPassword" class="col-form-label">Konfirmasi Password Baru</label>
                                 <div class="">
-                                    <input class="form-control" type="password" id="konfirmasiPassword" name="konfirmasiPassword" placeholder="Konfirmasi Password Baru" value="">
+                                    <input class="form-control  @error('konfirmasiPassword') is-invalid @enderror" type="password" id="konfirmasiPassword" name="konfirmasiPassword" placeholder="Konfirmasi Password Baru" value="">
+                                    @error('konfirmasiPassword')
+                                    <div class="invalid-feedback">
+                                        {{$message}}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
 

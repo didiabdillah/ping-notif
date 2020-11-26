@@ -23,8 +23,8 @@ class SuperAdminAuthController extends Controller
                 'password'  => 'required'
             ],
             [
-                'user_password.required' => 'The password field is required.',
-                'email.required' => 'The username/email field is required.'
+                'password.required' => 'The password field is required.',
+                'email.required' => 'The email field is required.'
             ]
         );
 
