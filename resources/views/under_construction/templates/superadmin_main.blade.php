@@ -121,7 +121,7 @@
                     <a href="calendar.html"><i class="mdi mdi-file-document"></i><span>Docs API</span></a>
                 </li>
                 <li>
-                    <a href="calendar.html"><i class="mdi mdi-timer"></i><span>Billing</span></a>
+                    <a href="{{route('superadmin_billing')}}"><i class="mdi mdi-timer"></i><span>Billing</span></a>
                 </li>
             </ul>
         </div>

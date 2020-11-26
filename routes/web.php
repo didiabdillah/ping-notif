@@ -115,6 +115,8 @@ Route::group(['prefix' => 'superadmin'], function () {
 	Route::group(['middleware' => 'loginSuperAdmin'], function () {
 		Route::get('dashboard', 'SuperAdmin\SuperAdminDashboardController@index')->name('superadmin_dashboard');
 		Route::get('grafik', 'SuperAdmin\SuperAdminDashboardController@grafik_data')->name('superadmin_grafik');
+
+		Route::get('billing', 'SuperAdmin\SuperAdminBillingController@index')->name('superadmin_billing');
 	});
 
 	Route::group(['middleware' => 'notLoginSuperAdmin'], function () {
@@ -126,15 +128,6 @@ Route::group(['prefix' => 'superadmin'], function () {
 Route::group(['prefix' => 'test'], function () {
 	Route::get('dashboard', function () {
 		return view('under_construction/dashboard/dashboard');
-	});
-	Route::get('pengguna', function () {
-		return 'pengguna';
-	});
-	Route::get('pengguna', function () {
-		return 'pengguna';
-	});
-	Route::get('pengguna', function () {
-		return 'pengguna';
 	});
 	Route::get('setting', 'SuperAdmin\AdminSuperController@index')->name('superadmin_setting');
 });

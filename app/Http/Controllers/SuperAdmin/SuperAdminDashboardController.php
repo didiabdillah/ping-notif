@@ -48,10 +48,7 @@ class SuperAdminDashboardController extends Controller
 
         $data_graf = [];
 
-
         for ($i = 0; $i < 7; $i++) {
-
-
             $data = DB::table('users')
                 ->select(DB::raw('DATE(created_at) AS tanggal, COUNT(*) AS jumlah_harian'))
                 ->where(DB::raw('DATE(created_at)'), DB::raw('SUBDATE(CURDATE(),' . $i . ')'))
