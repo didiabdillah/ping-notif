@@ -157,7 +157,7 @@
                                         @endif
                                             ">{{$data->status}}</span>
                                             @if($data->status != 'lunas')
-                                            <h5><a href=""><span class="badge badge-link"> Konfirmasi </span></a></h5>
+                                            <h5><a href="{{url('superadmin/billing/' . $data->id_his_bill . '/konfirmasi')}}"><span class="badge badge-link"> Konfirmasi </span></a></h5>
                                             @endif
                                         </td>
                                     </tr>

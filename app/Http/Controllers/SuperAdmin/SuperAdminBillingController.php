@@ -36,7 +36,7 @@ class SuperAdminBillingController extends Controller
             ->get();
 
         $table = DB::table('history_billing')
-            ->select('wa_account.number', 'users.name', 'history_billing.kd_unik', 'history_billing.status', 'history_billing.status_akses', 'history_billing.id_his_bill', 'history_billing.id_invoice', 'history_billing.nominal', DB::raw('DATE(history_billing.created_at) AS terbit'))
+            ->select('wa_account.number', 'users.name', 'history_billing.id_his_bill', 'history_billing.kd_unik', 'history_billing.status', 'history_billing.status_akses', 'history_billing.id_his_bill', 'history_billing.id_invoice', 'history_billing.nominal', DB::raw('DATE(history_billing.created_at) AS terbit'))
             ->join('users', 'history_billing.id_user', '=', 'users.id')
             ->join('wa_account', 'history_billing.id_wa', '=', 'wa_account.id')
             ->orderBy('history_billing.id_his_bill', 'desc')
@@ -60,6 +60,22 @@ class SuperAdminBillingController extends Controller
 
 
         return view('superadmin/billing/billing', compact('billing'));
+    }
+
+    public function konfirmasi($id)
+    {
+        $data = DB::table('history_billing')->where('id_his_bill', $id)->first();
+
+        return view('superadmin.billing.konfirmasi_billing', compact('data'));
+    }
+
+    public function ubahkonfirmasi(Request $request)
+    {
+        DB::table('history_billing')
+            ->where('id_his_bill', $request->id)
+            ->update(["status" => $request->status]);
+
+        return redirect()->route('superadmin_billing');
     }
 
     public function grafik_data()
