@@ -116,6 +116,18 @@ Route::group(['prefix' => 'superadmin'], function () {
 		Route::get('dashboard', 'SuperAdmin\SuperAdminDashboardController@index')->name('superadmin_dashboard');
 		Route::get('grafik', 'SuperAdmin\SuperAdminDashboardController@grafik_data')->name('superadmin_grafik');
 
+		Route::get('pengguna', function () {
+			return "pengguna";
+		});
+
+		Route::get('tiket', function () {
+			return "pengguna";
+		});
+
+		Route::get('api', function () {
+			return "Api";
+		});
+
 		Route::get('billing', 'SuperAdmin\SuperAdminBillingController@index')->name('superadmin_billing');
 		Route::get('billing/{id}/konfirmasi', 'SuperAdmin\SuperAdminBillingController@konfirmasi');
 		Route::patch('billing/{id}/konfirmasi', 'SuperAdmin\SuperAdminBillingController@ubahkonfirmasi');

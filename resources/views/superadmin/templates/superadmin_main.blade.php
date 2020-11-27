@@ -112,13 +112,13 @@
                     <a href="{{route('superadmin_dashboard')}}"><i class="mdi mdi-speedometer"></i><span>Dashboard</span></a>
                 </li>
                 <li>
-                    <a href="{{url('/test/pengguna')}}"><i class="mdi mdi-account-multiple"></i><span>Pengguna</span><span class="badge badge-primary badge-pill float-right">999+</span></a>
+                    <a href="{{url('/superadmin/pengguna')}}"><i class="mdi mdi-account-multiple"></i><span>Pengguna</span><span class="badge badge-primary badge-pill float-right">999+</span></a>
                 </li>
                 <li>
-                    <a href="calendar.html"><i class="mdi mdi-wechat"></i><span>Tiket</span><span class="badge badge-danger badge-pill float-right">999+</span></a>
+                    <a href="{{url('/superadmin/tiket')}}"><i class="mdi mdi-wechat"></i><span>Tiket</span><span class="badge badge-danger badge-pill float-right">999+</span></a>
                 </li>
                 <li>
-                    <a href="calendar.html"><i class="mdi mdi-file-document"></i><span>Docs API</span></a>
+                    <a href="{{url('/superadmin/api')}}"><i class="mdi mdi-file-document"></i><span>Docs API</span></a>
                 </li>
                 <li>
                     <a href="{{route('superadmin_billing')}}"><i class="mdi mdi-timer"></i><span>Billing</span></a>
