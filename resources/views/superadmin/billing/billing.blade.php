@@ -34,7 +34,7 @@
                             <div class="col-8 align-self-center text-center">
                                 <div class="ml-2 text-right">
                                     <p class="mb-1 text-muted font-size-13">Total Pemasukan</p>
-                                    <h4 class="mt-0 mb-1 font-20">Rp. {{$billing["total"]}}</h4>
+                                    <h4 class="mt-0 mb-1 font-20">Rp. @if($billing["total"] != ''){{$billing["total"]}}@else{{'0'}}@endif</h4>
                                 </div>
                             </div>
                         </div>
@@ -53,7 +53,7 @@
                             <div class="col-9 align-self-center text-center">
                                 <div class="ml-2 text-right">
                                     <p class="mb-1 text-muted font-size-13">Pemasukan Bulanan</p>
-                                    <h4 class="mt-0 mb-1 font-20">Rp. {{$billing["bulanan"]}}</h4>
+                                    <h4 class="mt-0 mb-1 font-20">Rp. @if($billing["bulanan"] != ''){{$billing["bulanan"]}}@else{{'0'}}@endif</h4>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                             <div class="col-10 align-self-center text-center">
                                 <div class="ml-2 text-right">
                                     <p class="mb-1 text-muted font-size-13">Pemasukan Mingguan</p>
-                                    <h4 class="mt-0 mb-1 font-20">Rp. {{$billing["mingguan"]}}</h4>
+                                    <h4 class="mt-0 mb-1 font-20">Rp. @if($billing["mingguan"] != ''){{$billing["mingguan"]}}@else{{'0'}}@endif</h4>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
                             <div class="col-9 align-self-center text-center">
                                 <div class="ml-2 text-right">
                                     <p class="mb-1 text-muted font-size-13">Pemasukan Harian</p>
-                                    <h4 class="mt-0 mb-1 font-20">Rp. {{$billing["harian"]}}</h4>
+                                    <h4 class="mt-0 mb-1 font-20">Rp. @if($billing["harian"] != ''){{$billing["harian"]}}@else{{'0'}}@endif</h4>
                                 </div>
                             </div>
                         </div>
