@@ -44,6 +44,8 @@ class SuperAdminSettingController extends Controller
             ->update($data);
 
         $request->session()->put(['name' => $request->name]);
+
+        Session::flash('alert', 'Nama Dan Email Diubah');
         return redirect()->back();
     }
 
@@ -80,8 +82,10 @@ class SuperAdminSettingController extends Controller
                 ->where('id', $request->id)
                 ->update(["password" => Hash::make($password["baru"])]);
 
+            Session::flash('alert2', 'Password Diubah');
             return redirect()->back();
         } else {
+            Session::flash('alert2', 'Password Lama Salah');
             return redirect()->back();
         }
     }

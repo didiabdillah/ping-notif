@@ -26,6 +26,9 @@
                 <div class="card ">
                     <div class="card-body">
                         <h5 class="card-title">General</h5>
+                        @if (Session::has('alert'))
+                        <div class="alert alert-danger" role="alert">{{ Session::get('alert') }}</div>
+                        @endif
                         <form method="POST" action="{{route('superadmin_setting_edit')}}">
                             @csrf
                             @method('put')
@@ -64,6 +67,9 @@
                 <div class="card ">
                     <div class="card-body">
                         <h5 class="card-title">Ubah Password</h5>
+                        @if (Session::has('alert2'))
+                        <div class="alert alert-danger" role="alert">{{ Session::get('alert2') }}</div>
+                        @endif
                         <form method="POST" action="{{route('superadmin_setting_ubah_password')}}">
                             @csrf
                             @method('patch')
