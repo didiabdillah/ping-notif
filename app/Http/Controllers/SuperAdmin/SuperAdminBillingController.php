@@ -35,11 +35,11 @@ class SuperAdminBillingController extends Controller
             ->where('status', 'lunas')
             ->get();
 
-        $table = DB::table('tb_billing')
-            ->select('wa_account.number', 'users.name', 'tb_billing.id_billing', 'tb_billing.masa_aktif', DB::raw('DATE(tb_billing.created_at) AS awal'))
-            ->join('users', 'tb_billing.id_user', '=', 'users.id')
-            ->join('wa_account', 'tb_billing.id_wa', '=', 'wa_account.id')
-            ->orderBy('tb_billing.id_billing', 'desc')
+        $table = DB::table('history_billing')
+            ->select('wa_account.number', 'users.name', 'history_billing.kd_unik', 'history_billing.status', 'history_billing.status_akses', 'history_billing.id_his_bill', 'history_billing.id_invoice', 'history_billing.nominal', DB::raw('DATE(history_billing.created_at) AS terbit'))
+            ->join('users', 'history_billing.id_user', '=', 'users.id')
+            ->join('wa_account', 'history_billing.id_wa', '=', 'wa_account.id')
+            ->orderBy('history_billing.id_his_bill', 'desc')
             ->get();
 
         // $pengguna = DB::table('users')

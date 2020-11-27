@@ -130,8 +130,9 @@
                                         <th>No</th>
                                         <th>No Whatsapp</th>
                                         <th>Tanggal Dibuat</th>
-                                        <th>Masa Aktif</th>
                                         <th>Pengguna</th>
+                                        <th>Nominal</th>
+                                        <th>Status Akses</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -140,10 +141,24 @@
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$data->number}}</td>
-                                        <td>{{$data->awal}}</td>
-                                        <td>{{$data->masa_aktif}}</td>
+                                        <td>{{$data->terbit}}</td>
                                         <td>{{$data->name}}</td>
-                                        <td>Belum Lunas <h5><a href=""><span class="badge badge-primary"> Konfirmasi </span></a></h5>
+                                        <td>{{$data->nominal}}</td>
+                                        <td>{{$data->status_akses}}</td>
+                                        <td><span class="badge 
+                                        @if($data->status == 'pending')    
+                                        {{'badge-warning'}}
+                                        @elseif($data->status == 'konfirmasi')
+                                        {{'badge-secondary'}}
+                                        @elseif($data->status == 'lunas')
+                                        {{'badge-success'}}
+                                        @elseif($data->status == 'batal')
+                                        {{'badge-danger'}}
+                                        @endif
+                                            ">{{$data->status}}</span>
+                                            @if($data->status != 'lunas')
+                                            <h5><a href=""><span class="badge badge-link"> Konfirmasi </span></a></h5>
+                                            @endif
                                         </td>
                                     </tr>
                                     @endforeach
