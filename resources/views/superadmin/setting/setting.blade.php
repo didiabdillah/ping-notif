@@ -30,6 +30,7 @@
                             @csrf
                             @method('put')
                             <div class="form-group ">
+                                <input class="form-control" type="hidden" id="id" name="id" value="{{$setting->id}}">
                                 <label for="name" class="col-form-label">Nama</label>
                                 <div class="">
                                     <input class="form-control  @error('name') is-invalid @enderror" type="text" id="name" name="name" placeholder="Nama" value="{{$setting->name}}">
@@ -66,6 +67,7 @@
                         <form method="POST" action="{{route('superadmin_setting_ubah_password')}}">
                             @csrf
                             @method('patch')
+                            <input class="form-control" type="hidden" id="id" name="id" value="{{$setting->id}}">
                             <div class="form-group ">
                                 <label for="passwordLama" class="col-form-label">Password Lama</label>
                                 <div class="">

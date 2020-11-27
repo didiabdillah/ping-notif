@@ -34,7 +34,16 @@ class SuperAdminSettingController extends Controller
             ]
         );
 
-        dd($request);
+        $data = [
+            'email' => $request->email,
+            'name' => $request->name
+        ];
+
+        DB::table('users')
+            ->where('id', $request->id)
+            ->update($data);
+
+        $request->session()->put(['name' => $request->name]);
         return redirect()->back();
     }
 
@@ -54,7 +63,11 @@ class SuperAdminSettingController extends Controller
             ]
         );
 
-        dd($request);
+        $password = [
+            "lama" => $request->passwordLama,
+            "baru" => $request->passwordBaru
+        ];
+
         return redirect()->back();
     }
 }
