@@ -68,6 +68,21 @@ class SuperAdminSettingController extends Controller
             "baru" => $request->passwordBaru
         ];
 
-        return redirect()->back();
+
+        $old = DB::table('users')
+            ->select('password')
+            ->where('id', $request->id)
+            ->first();
+
+        if (Hash::check($password["lama"], $old->password)) {
+
+            DB::table('users')
+                ->where('id', $request->id)
+                ->update(["password" => Hash::make($password["baru"])]);
+
+            return redirect()->back();
+        } else {
+            return redirect()->back();
+        }
     }
 }
