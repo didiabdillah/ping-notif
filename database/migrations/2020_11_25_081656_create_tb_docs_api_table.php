@@ -15,9 +15,8 @@ class CreateTbDocsApiTable extends Migration
     {
         Schema::create('tb_docs_api', function (Blueprint $table) {
             $table->bigIncrements('id_docs');
-            $table->string('judul', 255);
-            $table->text('deskripsi');
-            $table->text('code');
+            $table->string('subject', 255);
+            $table->text('content');
             $table->timestamps();
         });
     }
