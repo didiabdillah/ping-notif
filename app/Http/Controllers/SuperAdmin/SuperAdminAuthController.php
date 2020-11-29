@@ -19,12 +19,13 @@ class SuperAdminAuthController extends Controller
     {
         $request->validate(
             [
-                'email'  => 'required|email:rfc,dns',
+                'email'  => 'required|email:rfc',
                 'password'  => 'required'
             ],
             [
                 'password.required' => 'The password field is required.',
-                'email.required' => 'The email field is required.'
+                'email.required' => 'The email field is required.',
+                'email.email' => 'The email field is wrong fromat.'
             ]
         );
 

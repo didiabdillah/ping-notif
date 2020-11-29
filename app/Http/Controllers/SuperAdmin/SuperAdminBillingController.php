@@ -36,9 +36,10 @@ class SuperAdminBillingController extends Controller
             ->get();
 
         $table = DB::table('history_billing')
-            ->select('wa_account.number', 'users.name', 'history_billing.id_his_bill', 'history_billing.kd_unik', 'history_billing.status', 'history_billing.status_akses', 'history_billing.id_his_bill', 'history_billing.id_invoice', 'history_billing.nominal', DB::raw('DATE(history_billing.created_at) AS terbit'))
+            ->select('tb_konfirmasi.id_konfirmasi', 'wa_account.number', 'users.name', 'history_billing.id_his_bill', 'history_billing.kd_unik', 'history_billing.status', 'history_billing.status_akses', 'history_billing.id_his_bill', 'history_billing.id_invoice', 'history_billing.nominal', DB::raw('DATE(history_billing.created_at) AS terbit'))
             ->join('users', 'history_billing.id_user', '=', 'users.id')
             ->join('wa_account', 'history_billing.id_wa', '=', 'wa_account.id')
+            ->leftJoin('tb_konfirmasi', 'history_billing.id_his_bill', '=', 'tb_konfirmasi.id_his_bill')
             ->orderBy('history_billing.id_his_bill', 'desc')
             ->get();
 
@@ -64,7 +65,13 @@ class SuperAdminBillingController extends Controller
 
     public function konfirmasi($id)
     {
-        $data = DB::table('history_billing')->where('id_his_bill', $id)->first();
+        $data = DB::table('history_billing')
+            ->select('users.name', 'tb_konfirmasi.*', 'history_billing.id_his_bill', 'history_billing.status as billing_status')
+            ->join('tb_konfirmasi', 'history_billing.id_his_bill', '=', 'tb_konfirmasi.id_his_bill')
+            ->join('users', 'tb_konfirmasi.id_user', '=', 'users.id')
+            ->where('tb_konfirmasi.id_his_bill', $id)
+            ->where('history_billing.id_his_bill', $id)
+            ->first();
 
         return view('superadmin.billing.konfirmasi_billing', compact('data'));
     }

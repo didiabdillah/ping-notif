@@ -156,8 +156,8 @@
                                         {{'badge-danger'}}
                                         @endif
                                             ">{{$data->status}}</span>
-                                            @if($data->status != 'lunas')
-                                            <h5><a href="{{url('superadmin/billing/' . $data->id_his_bill . '/konfirmasi')}}"><span class="badge badge-link"> Konfirmasi </span></a></h5>
+                                            @if($data->status == 'konfirmasi' && $data->id_konfirmasi != NULL)
+                                            <h5><a href="{{url('superadmin/billing/' . $data->id_his_bill . '/konfirmasi')}}"><span class="badge badge-link"> verifikasi </span></a></h5>
                                             @endif
                                         </td>
                                     </tr>

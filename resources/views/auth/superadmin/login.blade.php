@@ -38,11 +38,11 @@
 
       <form method="POST" action="{{ route('superadmin_login') }}">
         @csrf
-        <input id="email" type="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus name="email" />
+        <input class="@error('email') invalid-feedback @enderror" id="email" type="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus name="email" />
         @error('email')
         <p style="margin-top: -10px!important; font-size: 12px; color: red;">{{ $message }}</p>
         @enderror
-        <input id="password" name="password" required autocomplete="current-password" type="password" placeholder="Password" />
+        <input class="@error('password') invalid-feedback @enderror" id="password" name="password" required autocomplete="current-password" type="password" placeholder="Password" />
         @error('password')
         <p style="margin-top: -10px!important; font-size: 12px; color: red;">{{ $message }}</p>
         @enderror
