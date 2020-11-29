@@ -124,9 +124,12 @@ Route::group(['prefix' => 'superadmin'], function () {
 			return "pengguna";
 		});
 
-		Route::get('api', function () {
-			return "Api";
-		});
+		Route::get('/api', 'SuperAdmin\SuperAdminDocsApiController@index')->name('superadmin_docs_api');
+		Route::get('/api/create', 'SuperAdmin\SuperAdminDocsApiController@create')->name('superadmin_create_docs_api');
+		Route::post('/api/create', 'SuperAdmin\SuperAdminDocsApiController@store')->name('superadmin_store_docs_api');
+		Route::get('/api/edit/{id}', 'SuperAdmin\SuperAdminDocsApiController@edit')->name('superadmin_edit_docs_api');
+		Route::patch('/api/edit/{id}', 'SuperAdmin\SuperAdminDocsApiController@update')->name('superadmin_update_docs_api');
+		Route::delete('/api/delete/{id}', 'SuperAdmin\SuperAdminDocsApiController@destroy')->name('superadmin_delete_docs_api');
 
 		Route::get('billing', 'SuperAdmin\SuperAdminBillingController@index')->name('superadmin_billing');
 		Route::get('billing/{id}/konfirmasi', 'SuperAdmin\SuperAdminBillingController@konfirmasi');
