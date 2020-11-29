@@ -118,9 +118,8 @@ Route::group(['prefix' => 'superadmin'], function () {
 
 		Route::get('/pengguna', 'SuperAdmin\SuperAdminPenggunaController@index')->name('superadmin_pengguna');
 
-		Route::get('tiket', function () {
-			return "pengguna";
-		});
+		Route::get('/tiket', 'SuperAdmin\SuperAdminTiketController@index')->name('superadmin_tiket');
+		Route::get('/detail/{id}', 'SuperAdmin\SuperAdminTiketController@detail')->name('superadmin_detail_tiket');
 
 		Route::get('/api', 'SuperAdmin\SuperAdminDocsApiController@index')->name('superadmin_docs_api');
 		Route::get('/api/create', 'SuperAdmin\SuperAdminDocsApiController@create')->name('superadmin_create_docs_api');
