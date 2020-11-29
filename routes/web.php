@@ -116,9 +116,7 @@ Route::group(['prefix' => 'superadmin'], function () {
 		Route::get('dashboard', 'SuperAdmin\SuperAdminDashboardController@index')->name('superadmin_dashboard');
 		Route::get('grafik', 'SuperAdmin\SuperAdminDashboardController@grafik_data')->name('superadmin_grafik');
 
-		Route::get('pengguna', function () {
-			return "pengguna";
-		});
+		Route::get('/pengguna', 'SuperAdmin\SuperAdminPenggunaController@index')->name('superadmin_pengguna');
 
 		Route::get('tiket', function () {
 			return "pengguna";
